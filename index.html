@@ -4,80 +4,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Vishwa Chethana · premium admission</title>
-    <!-- Inter & Outfit for modern touch -->
+    <title>Vishwa Chethana · Premium Admission Portal</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Official MCA and MBA Admission and Registration Portal for Vishwa Chethana PG College, Anekal. Submit your application online.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Google Fonts: Inter & Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Outfit:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
     <style>
-        * {
+        :root {
+            /* Color Palette - Premium Navy & Gold theme */
+            --primary-hsl: 215, 78%, 15%;
+            --primary-color: hsl(215, 78%, 15%);
+            --primary-light: hsl(215, 70%, 25%);
+            --primary-ultra-light: hsl(212, 100%, 96%);
+            --accent-color: hsl(40, 100%, 60%);
+            --accent-hover: hsl(40, 100%, 50%);
+            --accent-glow: hsla(40, 100%, 60%, 0.3);
+            --bg-dark: hsl(215, 80%, 8%);
+            --bg-dark-gradient: hsl(215, 80%, 15%);
+            --text-color: hsl(215, 78%, 15%);
+            --text-muted: hsl(215, 25%, 42%);
+            --text-light: hsl(0, 0%, 100%);
+            --border-color: hsl(212, 40%, 91%);
+            --border-hover: hsl(212, 45%, 83%);
+            --focus-ring: hsla(215, 70%, 25%, 0.18);
+            --error-color: hsl(352, 74%, 44%);
+            --success-color: hsl(150, 73%, 24%);
+            
+            /* Responsive spacing scale */
+            --container-padding: clamp(1.25rem, 5vw, 3rem);
+            --border-radius-lg: 2.5rem;
+            --border-radius-md: 1.5rem;
+            --border-radius-sm: 0.75rem;
+            --font-main: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+            --font-alt: 'Inter', system-ui, -apple-system, sans-serif;
+            
+            /* Transition */
+            --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Base Resets & Global Styles */
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Outfit', 'Inter', system-ui, sans-serif;
-            background: radial-gradient(circle at 10% 30%, #0a2f5f, #041b38);
+            font-family: var(--font-main);
+            color: var(--text-color);
+            background: radial-gradient(circle at 10% 20%, var(--bg-dark-gradient) 0%, var(--bg-dark) 90%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.5rem;
-            margin: 0;
+            padding: clamp(0.75rem, 3vw, 2.5rem);
+            line-height: 1.5;
+            overflow-x: hidden;
         }
 
-        /* glassmorphism backdrop */
+        /* Modern Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        /* Card Container - Glassmorphic details & Premium Shadows */
         .card {
             width: 100%;
-            max-width: 820px;
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 3rem;
-            box-shadow: 0 40px 70px -15px rgba(0, 20, 40, 0.6), 0 20px 40px -10px rgba(0, 0, 0, 0.4);
-            padding: 2.4rem 2.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: box-shadow 0.4s ease, transform 0.3s ease;
+            max-width: 860px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 
+                0 30px 60px -15px rgba(0, 10, 30, 0.55), 
+                0 15px 30px -10px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            padding: var(--container-padding);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: box-shadow 0.4s var(--transition-smooth), transform 0.4s var(--transition-smooth);
         }
 
         .card:hover {
-            box-shadow: 0 50px 90px -10px #001d3d;
+            box-shadow: 
+                0 40px 80px -10px rgba(0, 15, 45, 0.65), 
+                0 20px 40px -5px rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
         }
 
-        /* header with logo */
+        /* Header Layout - Highly responsive layout stacking on mobile, flexing on desktop */
         .header-row {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 0.75rem;
+            text-align: center;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1.5rem;
         }
 
+        @media (min-width: 576px) {
+            .header-row {
+                flex-direction: row;
+                text-align: left;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1.5rem;
+            }
+        }
+
+        /* College Logo Badge styling */
         .logo-badge {
             background: white;
-            width: 130px;
-            height: 130px;
-            border-radius: 16px;
+            width: 100px;
+            height: 100px;
+            border-radius: var(--border-radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 24px -5px rgba(0, 54, 120, 0.4);
-            border: 4px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 25px -5px rgba(13, 59, 102, 0.12);
+            border: 2px solid var(--border-color);
             flex-shrink: 0;
-            padding: 0;
             overflow: hidden;
+            transition: transform var(--transition-smooth);
         }
 
-        .logo-badge i {
-            font-size: 2.5rem;
-            background: linear-gradient(145deg, #0f3b77, #2863b5);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .logo-badge:hover {
+            transform: scale(1.05) rotate(1deg);
         }
 
         .logo-badge img {
@@ -85,781 +162,866 @@
             height: 100%;
             object-fit: contain;
             display: block;
-            border-radius: 12px;
         }
 
-        .college-title h2 {
-            font-size: 1.8rem;
+        /* College Title Info styling */
+        .college-title {
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        @media (min-width: 576px) {
+            .college-title {
+                width: auto;
+            }
+        }
+
+        .college-title h1 {
+            font-size: clamp(1.6rem, 4.5vw, 2.2rem);
             font-weight: 700;
-            background: linear-gradient(145deg, #0b2b5c, #1f509e);
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            line-height: 1.2;
+            line-height: 1.15;
+            margin-bottom: 0.35rem;
         }
 
         .college-title span {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
-            color: #2f4f7a;
-            font-weight: 500;
-            background: rgba(220, 240, 255, 0.7);
-            padding: 0.3rem 1.2rem;
-            border-radius: 40px;
-            font-size: 0.9rem;
-            margin-top: 4px;
-            width: fit-content;
+            gap: 6px;
+            color: var(--primary-light);
+            font-weight: 600;
+            background: var(--primary-ultra-light);
+            padding: 0.35rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            border: 1px solid rgba(13, 59, 102, 0.08);
         }
 
+        /* Admissions Badge Widget */
         .admissions-badge {
-            margin-left: auto;
-            background: linear-gradient(120deg, #ffd966, #ffbe3f);
-            padding: 0.5rem 1.5rem;
-            border-radius: 60px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+            padding: 0.6rem 1.35rem;
+            border-radius: 2rem;
             font-weight: 700;
-            color: #0b2a4a;
-            font-size: 1rem;
-            box-shadow: 0 8px 20px -10px #f0b323;
-            border: 1px solid rgba(255, 255, 240, 0.8);
+            color: var(--primary-dark);
+            font-size: 0.95rem;
+            box-shadow: 0 8px 20px -8px var(--accent-color);
+            border: 1px solid rgba(255, 255, 255, 0.35);
             display: flex;
             align-items: center;
             gap: 8px;
+            transition: transform var(--transition-smooth) ease, box-shadow var(--transition-smooth) ease;
+        }
+
+        .admissions-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px -6px var(--accent-color);
         }
 
         .admissions-badge i {
-            font-size: 1.1rem;
-            color: #00337c;
+            font-size: 1.05rem;
         }
 
+        /* Section Title Styling */
         .form-head {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin: 1.8rem 0 2rem;
+            gap: 14px;
+            margin-bottom: 2rem;
         }
 
         .form-head i {
-            background: #e3f0ff;
-            padding: 12px 18px;
-            border-radius: 60px;
-            font-size: 1.4rem;
-            color: #1e4f9e;
+            background: var(--primary-ultra-light);
+            padding: 12px;
+            border-radius: 50%;
+            font-size: 1.25rem;
+            color: var(--primary-light);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
         }
 
-        .form-head h3 {
-            font-size: 1.9rem;
-            font-weight: 600;
-            color: #0a2f5f;
+        .form-head h2 {
+            font-size: clamp(1.3rem, 3.8vw, 1.7rem);
+            font-weight: 700;
+            color: var(--primary-color);
             letter-spacing: -0.01em;
         }
 
-        /* form */
-        form {
-            width: 100%;
+        /* Responsive Form Fields Grid (Mobile-first) */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .full-width {
+                grid-column: span 2;
+            }
         }
 
         .field {
             display: flex;
             flex-direction: column;
-            gap: 0.35rem;
-            margin-bottom: 1.2rem;
+            gap: 0.5rem;
+            position: relative;
         }
 
         .field label {
             font-weight: 600;
-            font-size: 0.95rem;
-            color: #1f3f6b;
+            font-size: 0.9rem;
+            color: var(--primary-light);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .required-star {
-            color: #c5283d;
-            font-size: 1.2rem;
-            line-height: 1;
-            margin-left: 4px;
+        .field label i {
+            font-size: 0.85rem;
+            color: var(--primary-light);
+            opacity: 0.9;
         }
 
+        /* Required star styling */
+        .required-star {
+            color: var(--error-color);
+            font-weight: bold;
+            margin-left: 2px;
+        }
+
+        /* Text Input Wrapper for Icons */
         .input-wrapper {
             position: relative;
             display: flex;
             align-items: center;
+            width: 100%;
         }
 
-        .input-wrapper i {
+        .input-wrapper > i {
             position: absolute;
             left: 18px;
-            color: #648bb0;
-            font-size: 1rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
             pointer-events: none;
+            transition: color var(--transition-smooth);
+            z-index: 2;
         }
 
+        /* Core Form Fields Layout and Typography - Prevent iOS Auto-Zoom */
         input,
         select,
         textarea {
             width: 100%;
-            padding: 1rem 1.2rem 1rem 3rem;
-            font-family: 'Outfit', 'Inter', sans-serif;
-            font-size: 1rem;
-            border: 2px solid #e5edf5;
-            border-radius: 40px;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: inset 0 2px 4px rgba(0, 30, 60, 0.02);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            padding: 0.9rem 1.2rem 0.9rem 2.8rem;
+            font-family: var(--font-alt);
+            font-size: 1rem; /* Exactly 16px to prevent iOS auto-zoom */
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            background: hsl(0, 0%, 100%);
+            box-shadow: 0 2px 5px rgba(0, 10, 30, 0.02);
+            transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth), transform var(--transition-smooth), background-color var(--transition-smooth);
             outline: none;
-            color: #0b2a4a;
+            color: var(--text-color);
             font-weight: 500;
+            min-height: 48px; /* Touch target size > 44px */
         }
 
-        input:hover,
-        select:hover,
-        textarea:hover {
-            background: #ffffff;
-            border-color: #cbdcf0;
-            box-shadow: 0 4px 12px rgba(30, 79, 158, 0.08);
+        /* Specific styles for Textarea */
+        textarea {
+            padding-left: 2.8rem;
+            border-radius: var(--border-radius-md);
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        /* Select boxes customized with CSS arrow */
+        select {
+            appearance: none;
+            cursor: pointer;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%230d3b66" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 1.2rem center;
+            background-size: 1rem;
+            padding-right: 2.8rem;
+        }
+
+        /* Hover states */
+        input:hover, select:hover, textarea:hover {
+            border-color: var(--border-hover);
+            background: hsl(0, 0%, 100%);
+        }
+
+        /* Focus outlines with custom shadows for Accessibility */
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 4px var(--focus-ring);
+            background: hsl(0, 0%, 100%);
             transform: translateY(-1px);
         }
 
-        select {
-            padding-left: 3rem;
-            appearance: none;
-            cursor: pointer;
-            background-color: #ffffff;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%233b6ca0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>');
-            background-repeat: no-repeat;
-            background-position: right 1.2rem center;
-            background-size: 1.1rem;
+        /* Wrapper active states */
+        .input-wrapper:focus-within > i {
+            color: var(--primary-light);
         }
 
-        textarea {
-            padding-left: 3rem;
-            border-radius: 32px;
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-            border-color: #1e4f9e;
-            background: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 0 0 4px rgba(30, 79, 158, 0.15), 0 8px 20px rgba(0, 35, 70, 0.12);
-        }
-
-        /* Segmented DOB inputs */
+        /* Date of Birth Grid Split */
         .dob-segments {
-            display: flex;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
             width: 100%;
-            background: rgba(240, 246, 255, 0.4);
-            padding: 0.3rem;
-            border-radius: 50px;
-            border: 1px solid rgba(220, 235, 250, 0.6);
         }
 
         .dob-segments select {
-            padding: 0.9rem 2.2rem 0.9rem 1rem;
-            background-position: right 0.8rem center;
-            background-size: 0.9rem;
+            padding-left: 1rem;
+            padding-right: 2.2rem;
+            background-position: right 0.75rem center;
+            background-size: 0.85rem;
             font-size: 0.95rem;
-            flex: 1;
-            border-radius: 40px;
-            border: 2px solid transparent;
-            background-color: white;
-            box-shadow: 0 2px 6px rgba(0, 30, 60, 0.05);
-            margin: 0;
-            color: #1f3f6b;
             font-weight: 600;
+            border-radius: var(--border-radius-md);
+            min-height: 48px;
         }
 
-        .dob-segments select:hover {
-            border-color: #c2d6ef;
-            box-shadow: 0 4px 10px rgba(0, 40, 80, 0.08);
-            transform: translateY(-1px);
-        }
-
-        .dob-segments select:focus {
-            border-color: #1e4f9e;
-            transform: translateY(-2px);
-            box-shadow: 0 0 0 3px rgba(30, 79, 158, 0.15), 0 6px 12px rgba(0, 40, 80, 0.1);
-        }
-
-        /* Specific sizing */
-        #dob_dd,
-        #dob_mm {
-            flex: 1.2;
-        }
-
-        #dob_yyyy {
-            flex: 1.5;
-        }
-
-        /* hidden graduation text field (shown when others selected) */
+        /* Graduation degree additional text field */
         .grad-others-field {
-            margin-top: 0.8rem;
-            transition: opacity 0.2s ease;
+            margin-top: 0.75rem;
+            width: 100%;
         }
 
         .grad-others-field.hidden {
             display: none;
         }
 
+        /* Validation UI Message Styling */
         .error-message {
-            color: #b81c1c;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-left: 1rem;
-            margin-top: 0.2rem;
+            color: var(--error-color);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.35rem;
+            padding-left: 0.5rem;
             display: flex;
             align-items: center;
-            gap: 4px;
-            min-height: 20px;
+            gap: 6px;
+            min-height: 1.2rem;
+            animation: slideDown 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .error-hidden {
             display: none !important;
         }
 
-        .row-duo {
-            display: flex;
-            gap: 1.2rem;
-            flex-wrap: wrap;
+        /* Dynamic states managed by JS */
+        input.invalid, select.invalid, textarea.invalid {
+            border-color: var(--error-color);
+            box-shadow: 0 0 0 4px rgba(197, 40, 61, 0.12);
         }
 
-        .row-duo .field {
-            flex: 1 1 200px;
+        input.valid, select.valid, textarea.valid {
+            border-color: var(--success-color);
+            box-shadow: 0 0 0 4px rgba(18, 115, 75, 0.12);
         }
 
-        /* ========== NEW MORE DETAILS SECTION ========== */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* More Details / College Contacts section card */
         .more-details {
-            background: rgba(225, 240, 255, 0.5);
-            border-radius: 40px;
-            padding: 1.8rem 2rem 1.5rem 2rem;
-            margin: 1.8rem 0 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(4px);
+            background: var(--primary-ultra-light);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            border: 1px solid rgba(13, 59, 102, 0.05);
+            margin-top: 0.5rem;
         }
 
         .more-details h3 {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #0f3b77;
-            margin-bottom: 1.4rem;
-            border-bottom: 2px dashed #a0c2e0;
-            padding-bottom: 0.8rem;
+            gap: 8px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.25rem;
+            border-bottom: 1px dashed rgba(13, 59, 102, 0.15);
+            padding-bottom: 0.6rem;
         }
 
         .more-details h3 i {
-            background: white;
-            padding: 10px 14px;
-            border-radius: 50px;
-            color: #1e4f9e;
-            font-size: 1.2rem;
+            color: var(--primary-light);
         }
 
+        /* Grid layout for contacts */
         .contact-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem 2rem;
-            margin-bottom: 1.2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        @media (min-width: 576px) {
+            .contact-grid {
+                grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            }
         }
 
         .contact-item {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            align-items: flex-start;
+            gap: 12px;
             background: white;
-            padding: 0.7rem 1.5rem 0.7rem 1.2rem;
-            border-radius: 60px;
-            box-shadow: 0 6px 16px rgba(0, 40, 70, 0.1);
-            border: 1px solid rgba(30, 79, 158, 0.2);
-            transition: 0.15s;
+            padding: 0.8rem 1.25rem;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 10px rgba(0, 20, 50, 0.02);
+            border: 1px solid var(--border-color);
+            transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
         }
 
         .contact-item:hover {
             transform: translateY(-2px);
-            background: #f2f9ff;
+            box-shadow: 0 6px 15px rgba(0, 20, 50, 0.08);
+            border-color: var(--border-hover);
         }
 
         .contact-item i {
-            font-size: 1.2rem;
-            width: 1.8rem;
-            color: #1e4f9e;
+            font-size: 1.1rem;
+            color: var(--primary-light);
+            width: 20px;
+            text-align: center;
+            margin-top: 3px; /* Align icon with the first line of text */
+            flex-shrink: 0;
+        }
+
+        .contact-item.whatsapp-highlight i {
+            color: #25D366;
+        }
+
+        .contact-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-color);
+            word-break: break-all;
+            word-break: break-word;
+            overflow-wrap: anywhere;
         }
 
         .contact-item a {
             text-decoration: none;
-            color: #1e3a5f;
-            font-weight: 500;
+            color: var(--primary-light);
+            font-weight: 700;
+            transition: color var(--transition-smooth);
+            display: inline;
+            word-break: break-all;
+            word-break: break-word;
+            overflow-wrap: anywhere;
         }
 
         .contact-item a:hover {
+            color: var(--primary-color);
             text-decoration: underline;
         }
 
-        .whatsapp-highlight i {
-            color: #25D366;
-        }
-
+        /* College Maps Section */
         .map-link {
             display: flex;
             align-items: center;
             gap: 12px;
             background: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 60px;
-            margin: 0.8rem 0 0.5rem;
-            border: 1px solid #c2daf5;
+            padding: 0.9rem 1.25rem;
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 10px rgba(0, 20, 50, 0.02);
+            transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+        }
+
+        .map-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 20, 50, 0.08);
+            border-color: var(--border-hover);
         }
 
         .map-link i {
             color: #d32f2f;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
 
         .map-link a {
-            color: #0b2b5c;
-            font-weight: 600;
+            color: var(--primary-color);
+            font-weight: 700;
             text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            width: 100%;
         }
 
         .map-link a:hover {
             text-decoration: underline;
         }
 
-        /* ========== end more details ========== */
+        /* Office Timings Info */
+        .office-hours {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
 
-        /* action buttons with spinner */
+        /* Form Actions Row - Stack vertically on small screens, flex on desktop */
         .actions {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 0.8rem;
-            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 0.5rem;
         }
 
-        button {
-            flex: 1 1 200px;
-            padding: 1.2rem 1.5rem;
-            font-weight: 700;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 60px;
-            font-family: 'Outfit', sans-serif;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            border: 2px solid transparent;
-        }
-
-        .btn-submit {
-            background: linear-gradient(115deg, #0f3b77, #2660b0);
-            color: white;
-            box-shadow: 0 18px 28px -16px #103d77;
-        }
-
-        .btn-submit:hover:not(:disabled) {
-            background: linear-gradient(115deg, #134985, #2d6bc9);
-            transform: scale(1.02);
-            box-shadow: 0 24px 36px -12px #1e4f9e;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-submit:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        .btn-reset {
-            background: white;
-            color: #1e3f6b;
-            border: 2px solid #d5e2f5;
-        }
-
-        .btn-reset:hover {
-            background: #f2f9ff;
-            border-color: #1e4f9e;
-            transform: translateY(-3px);
-            box-shadow: 0 20px 24px -16px #1e4f9e;
-        }
-
-        .spinner {
-            display: inline-block;
-            width: 1.2rem;
-            height: 1.2rem;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
+        @media (min-width: 480px) {
+            .actions {
+                flex-direction: row;
             }
         }
 
-        /* success popup */
+        button {
+            width: 100%;
+            padding: 0.9rem 1.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 2px solid transparent;
+            border-radius: var(--border-radius-md);
+            font-family: var(--font-main);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all var(--transition-smooth);
+            min-height: 48px; /* Touch target minimum */
+        }
+
+        @media (min-width: 480px) {
+            button {
+                width: auto;
+                flex: 1;
+            }
+        }
+
+        /* Submit Button Styling */
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+            color: var(--text-light);
+            box-shadow: 0 10px 25px -10px var(--primary-color);
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -8px var(--primary-color);
+        }
+
+        .btn-submit:focus-visible {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        /* Reset Button Styling */
+        .btn-reset {
+            background: white;
+            color: var(--primary-light);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-reset:hover {
+            background: var(--primary-ultra-light);
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-reset:focus-visible {
+            outline: 3px solid var(--primary-light);
+            outline-offset: 2px;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Footer Info Section */
+        .footer-note {
+            margin-top: 2rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            border-top: 2px solid var(--border-color);
+            padding-top: 1.25rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .footer-note i {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Success Popup modal styling */
         .popup-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 20, 45, 0.5);
-            backdrop-filter: blur(3px);
+            background: rgba(4, 27, 56, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             display: none;
             align-items: center;
             justify-content: center;
             z-index: 1000;
+            padding: 1.5rem;
         }
 
         .popup-card {
             background: white;
-            padding: 2.4rem 2.8rem;
-            border-radius: 4rem;
-            box-shadow: 0 60px 100px -20px #041b38;
+            padding: 2.5rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 30px 60px -15px rgba(0, 10, 30, 0.6);
             text-align: center;
-            max-width: 400px;
-            width: 90%;
-            animation: fadeSlide 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.9);
+            max-width: 420px;
+            width: 100%;
+            animation: fadeSlide 0.4s var(--transition-smooth) forwards;
+            border: 1px solid rgba(255, 255, 255, 0.85);
         }
 
-        .popup-card i {
+        .popup-card i.fa-circle-check {
             font-size: 3.5rem;
-            background: #12734b;
-            color: white;
-            padding: 1rem;
-            border-radius: 60px;
-            margin-bottom: 1.2rem;
+            color: var(--success-color);
+            margin-bottom: 1.25rem;
+            display: inline-block;
         }
 
         .popup-card h2 {
-            font-size: 2rem;
-            color: #0a2f5f;
-            margin-bottom: 0.4rem;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
         }
 
         .popup-card p {
-            color: #264d7c;
-            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
+        /* Popup Close Button */
         .popup-close {
-            margin-top: 1.8rem;
-            background: #eaf3ff;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 40px;
-            font-weight: 600;
-            color: #1e4f9e;
+            width: auto;
+            padding: 0.8rem 2.5rem;
+            background: var(--primary-ultra-light);
+            color: var(--primary-color);
+            border: 1px solid rgba(13, 59, 102, 0.1);
+            border-radius: var(--border-radius-md);
+            font-weight: 700;
             cursor: pointer;
+            font-size: 0.95rem;
+            min-height: 48px;
+            transition: all var(--transition-smooth);
+        }
+
+        .popup-close:hover {
+            background: var(--primary-light);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px -8px var(--primary-light);
         }
 
         @keyframes fadeSlide {
             0% {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px) scale(0.95);
             }
-
             100% {
                 opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .footer-note {
-            margin-top: 2.2rem;
-            color: #4d6f96;
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            font-size: 0.8rem;
-            border-top: 1px solid rgba(100, 140, 190, 0.2);
-            padding-top: 1.2rem;
-        }
-
-        /* mobile fine-tune */
-        @media (max-width: 550px) {
-            .card {
-                padding: 1.8rem 1.2rem;
-                border-radius: 2rem;
-            }
-
-            .logo-badge {
-                width: 50px;
-                height: 50px;
-            }
-
-            .logo-badge i {
-                font-size: 2rem;
-            }
-
-            .admissions-badge {
-                padding: 0.3rem 1rem;
-                font-size: 0.9rem;
-                margin-left: 0;
-            }
-
-            .header-row {
-                justify-content: center;
-            }
-
-            .form-head h3 {
-                font-size: 1.6rem;
-            }
-
-            .more-details {
-                padding: 1.2rem;
-            }
-
-            .contact-grid {
-                gap: 1rem;
+                transform: translateY(0) scale(1);
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="card">
-        <!-- header with logo and admissions badge -->
-        <div class="header-row">
+    <!-- Main Form Container -->
+    <main class="card">
+        <!-- Header with logo and admissions badge -->
+        <header class="header-row">
             <div class="logo-badge">
                 <img src="vishwa-chethana-degree-college-anekal-taluk-bangalore-colleges-msr0qfkq6j.webp"
-                    alt="Vishwa Chethana Logo">
+                    alt="Vishwa Chethana PG College Logo" width="100" height="100" decoding="async" loading="eager">
             </div>
             <div class="college-title">
-                <h2>Vishwa Chethana</h2>
-                <span><i class="fas fa-map-marker-alt"></i> PG College, Anekal</span>
+                <h1>Vishwa Chethana</h1>
+                <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> PG College, Anekal</span>
             </div>
             <div class="admissions-badge">
-                <i class="fas fa-door-open"></i> Admissions 2026
+                <i class="fas fa-door-open" aria-hidden="true"></i> Admissions 2026
             </div>
-        </div>
+        </header>
 
+        <!-- Form Heading -->
         <div class="form-head">
-            <i class="fas fa-file-pen"></i>
-            <h3>MCA / MBA registration</h3>
+            <i class="fas fa-file-pen" aria-hidden="true"></i>
+            <h2>MCA / MBA Registration</h2>
         </div>
 
-        <!-- IMPORTANT: form name unchanged -->
+        <!-- Registration Form (Form Name Unchanged) -->
         <form name="formName" action="#" method="post" novalidate>
             <div class="form-grid">
-                <!-- full name -->
-                <div class="field">
-                    <label><i class="fas fa-user"></i> Full Name <span class="required-star">*</span></label>
+                <!-- Full name -->
+                <div class="field full-width">
+                    <label for="nameInput"><i class="fas fa-user" aria-hidden="true"></i> Full Name <span class="required-star" aria-hidden="true">*</span></label>
                     <div class="input-wrapper">
-                        <i class="fas fa-user-circle"></i>
-                        <input type="text" name="name" placeholder="Enter Full Name" required>
+                        <i class="fas fa-user-circle" aria-hidden="true"></i>
+                        <input type="text" id="nameInput" name="name" placeholder="Enter Full Name" aria-required="true" required>
                     </div>
                 </div>
 
-                <!-- DOB + gender -->
-                <div class="row-duo">
-                    <div class="field">
-                        <label><i class="fas fa-cake-candles"></i> Date of birth <span
-                                class="required-star">*</span></label>
-                        <div class="input-wrapper" style="margin-left: -5px; width: calc(100% + 10px);">
-                            <div class="dob-segments">
-                                <select id="dob_dd" required>
-                                    <option value="" disabled selected>DD</option>
-                                </select>
-                                <select id="dob_mm" required>
-                                    <option value="" disabled selected>MM</option>
-                                    <option value="1">Jan (01)</option>
-                                    <option value="2">Feb (02)</option>
-                                    <option value="3">Mar (03)</option>
-                                    <option value="4">Apr (04)</option>
-                                    <option value="5">May (05)</option>
-                                    <option value="6">Jun (06)</option>
-                                    <option value="7">Jul (07)</option>
-                                    <option value="8">Aug (08)</option>
-                                    <option value="9">Sep (09)</option>
-                                    <option value="10">Oct (10)</option>
-                                    <option value="11">Nov (11)</option>
-                                    <option value="12">Dec (12)</option>
-                                </select>
-                                <select id="dob_yyyy" required>
-                                    <option value="" disabled selected>YYYY</option>
-                                </select>
-                            </div>
-                            <input type="hidden" name="dob" id="dob_hidden">
-                        </div>
-                        <div class="error-message error-hidden" id="dobError"><i class="fas fa-circle-exclamation"></i>
-                            Enter valid date</div>
-                    </div>
-                    <div class="field">
-                        <label><i class="fas fa-venus-mars"></i> Gender <span class="required-star">*</span></label>
-                        <div class="input-wrapper">
-                            <i class="fas fa-user-group"></i>
-                            <select name="gender" required>
-                                <option value="" disabled selected>Select</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Email + phone with validation -->
-                <div class="row-duo">
-                    <div class="field">
-                        <label><i class="fas fa-envelope"></i> Email <span class="required-star">*</span></label>
-                        <div class="input-wrapper">
-                            <i class="fas fa-at"></i>
-                            <input type="email" name="email" id="email" placeholder="student@example.com" required>
-                        </div>
-                        <div class="error-message error-hidden" id="emailError"><i
-                                class="fas fa-circle-exclamation"></i> Enter valid email address</div>
-                    </div>
-                    <div class="field">
-                        <label><i class="fas fa-phone"></i> Phone <span class="required-star">*</span></label>
-                        <div class="input-wrapper">
-                            <i class="fas fa-mobile-screen"></i>
-                            <input type="tel" name="phone" id="phone" inputmode="numeric" placeholder="9876543210"
-                                required maxlength="10">
-                        </div>
-                        <div class="error-message error-hidden" id="phoneError"><i
-                                class="fas fa-circle-exclamation"></i> Enter valid 10-digit mobile number</div>
-                    </div>
-                </div>
-
-                <!-- address -->
+                <!-- DOB -->
                 <div class="field">
-                    <label><i class="fas fa-location-dot"></i> Address</label>
+                    <label for="dob_dd"><i class="fas fa-cake-candles" aria-hidden="true"></i> Date of Birth <span class="required-star" aria-hidden="true">*</span></label>
+                    <div class="dob-segments">
+                        <select id="dob_dd" aria-label="Day of Birth" aria-required="true" required>
+                            <option value="" disabled selected>DD</option>
+                        </select>
+                        <select id="dob_mm" aria-label="Month of Birth" aria-required="true" required>
+                            <option value="" disabled selected>MM</option>
+                            <option value="1">Jan (01)</option>
+                            <option value="2">Feb (02)</option>
+                            <option value="3">Mar (03)</option>
+                            <option value="4">Apr (04)</option>
+                            <option value="5">May (05)</option>
+                            <option value="6">Jun (06)</option>
+                            <option value="7">Jul (07)</option>
+                            <option value="8">Aug (08)</option>
+                            <option value="9">Sep (09)</option>
+                            <option value="10">Oct (10)</option>
+                            <option value="11">Nov (11)</option>
+                            <option value="12">Dec (12)</option>
+                        </select>
+                        <select id="dob_yyyy" aria-label="Year of Birth" aria-required="true" required>
+                            <option value="" disabled selected>YYYY</option>
+                        </select>
+                    </div>
+                    <input type="hidden" name="dob" id="dob_hidden">
+                    <div class="error-message error-hidden" id="dobError" role="alert">
+                        <i class="fas fa-circle-exclamation" aria-hidden="true"></i> Enter valid date
+                    </div>
+                </div>
+
+                <!-- Gender -->
+                <div class="field">
+                    <label for="genderSelect"><i class="fas fa-venus-mars" aria-hidden="true"></i> Gender <span class="required-star" aria-hidden="true">*</span></label>
                     <div class="input-wrapper">
-                        <i class="fas fa-map-pin"></i>
-                        <textarea name="address" placeholder="House / Street / City - 560001"></textarea>
+                        <i class="fas fa-user-group" aria-hidden="true"></i>
+                        <select id="genderSelect" name="gender" aria-required="true" required>
+                            <option value="" disabled selected>Select</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
                     </div>
                 </div>
 
-                <!-- Course + Graduation Degree (dynamic) -->
-                <div class="row-duo">
-                    <div class="field">
-                        <label><i class="fas fa-book-open"></i> Course <span class="required-star">*</span></label>
+                <!-- Email -->
+                <div class="field">
+                    <label for="email"><i class="fas fa-envelope" aria-hidden="true"></i> Email <span class="required-star" aria-hidden="true">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-at" aria-hidden="true"></i>
+                        <input type="email" name="email" id="email" placeholder="student@example.com" aria-required="true" required>
+                    </div>
+                    <div class="error-message error-hidden" id="emailError" role="alert">
+                        <i class="fas fa-circle-exclamation" aria-hidden="true"></i> Enter valid email address
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="field">
+                    <label for="phone"><i class="fas fa-phone" aria-hidden="true"></i> Phone <span class="required-star" aria-hidden="true">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-mobile-screen" aria-hidden="true"></i>
+                        <input type="tel" name="phone" id="phone" inputmode="numeric" placeholder="9876543210" aria-required="true" required maxlength="10">
+                    </div>
+                    <div class="error-message error-hidden" id="phoneError" role="alert">
+                        <i class="fas fa-circle-exclamation" aria-hidden="true"></i> Enter valid 10-digit mobile number
+                    </div>
+                </div>
+
+                <!-- Address -->
+                <div class="field full-width">
+                    <label for="addressInput"><i class="fas fa-location-dot" aria-hidden="true"></i> Address</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-map-pin" aria-hidden="true"></i>
+                        <textarea id="addressInput" name="address" placeholder="House / Street / City - 560001"></textarea>
+                    </div>
+                </div>
+
+                <!-- Course -->
+                <div class="field full-width">
+                    <label for="course"><i class="fas fa-book-open" aria-hidden="true"></i> Course <span class="required-star" aria-hidden="true">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                        <select name="course" id="course" aria-required="true" required>
+                            <option value="" disabled selected>Select course</option>
+                            <option>MCA</option>
+                            <option>MBA</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Graduation Degree -->
+                <div class="field">
+                    <label for="degreeSelect"><i class="fas fa-award" aria-hidden="true"></i> Graduation Degree <span class="required-star" aria-hidden="true">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user-graduate" aria-hidden="true"></i>
+                        <select name="degree" id="degreeSelect" aria-required="true" required>
+                            <option value="" disabled selected>Select degree</option>
+                            <option value="BCom">BCom</option>
+                            <option value="BCA">BCA</option>
+                            <option value="BBA">BBA</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <!-- Dynamic text field for Others -->
+                    <div id="othersContainer" class="grad-others-field hidden">
                         <div class="input-wrapper">
-                            <i class="fas fa-graduation-cap"></i>
-                            <select name="course" id="course" required>
-                                <option value="" disabled selected>Select course</option>
-                                <option>MCA</option>
-                                <option>MBA</option>
-                            </select>
+                            <i class="fas fa-pencil" aria-hidden="true"></i>
+                            <input type="text" id="otherDegreeInput" placeholder="Enter your degree" name="other_degree">
                         </div>
                     </div>
                 </div>
 
-                <!-- Graduation Degree & Year -->
-                <div class="row-duo">
-                    <div class="field">
-                        <label><i class="fas fa-award"></i> Graduation Degree <span
-                                class="required-star">*</span></label>
-                        <div class="input-wrapper">
-                            <i class="fas fa-user-graduate"></i>
-                            <select name="degree" id="degreeSelect" required>
-                                <option value="" disabled selected>Select degree</option>
-                                <option value="BCom">BCom</option>
-                                <option value="BCA">BCA</option>
-                                <option value="BBA">BBA</option>
-                                <option value="Others">Others</option>
-                            </select>
-                        </div>
-                        <!-- dynamic text field for Others (hidden initially) -->
-                        <div id="othersContainer" class="grad-others-field hidden">
-                            <div class="input-wrapper">
-                                <i class="fas fa-pencil"></i>
-                                <input type="text" id="otherDegreeInput" placeholder="Enter your degree"
-                                    name="other_degree">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label><i class="fas fa-calendar-check"></i> Graduation Year <span
-                                class="required-star">*</span></label>
-                        <div class="input-wrapper">
-                            <i class="fas fa-history"></i>
-                            <select name="grad_year" id="gradYearSelect" required>
-                                <option value="" disabled selected>Select year</option>
-                            </select>
-                        </div>
+                <!-- Graduation Year -->
+                <div class="field">
+                    <label for="gradYearSelect"><i class="fas fa-calendar-check" aria-hidden="true"></i> Graduation Year <span class="required-star" aria-hidden="true">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-history" aria-hidden="true"></i>
+                        <select name="grad_year" id="gradYearSelect" aria-required="true" required>
+                            <option value="" disabled selected>Select year</option>
+                        </select>
                     </div>
                 </div>
 
-                <!-- ========== NEW: MORE DETAILS SECTION (contact, whatsapp, email, map) ========== -->
-                <div class="more-details">
-                    <h3><i class="fas fa-address-card"></i> More details — get in touch</h3>
+                <!-- More details panel (Contact information) -->
+                <section class="more-details full-width" aria-labelledby="more-details-title">
+                    <h3 id="more-details-title"><i class="fas fa-address-card" aria-hidden="true"></i> More Details — Get in Touch</h3>
 
                     <div class="contact-grid">
-                        <!-- phone (same as given) -->
+                        <!-- Phone link -->
                         <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <span><strong>Call:</strong> <a href="tel:9916666360">9916666360</a></span>
+                            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                            <span><strong>Call:</strong> <a href="tel:9916666360" aria-label="Call admissions at 9916666360">9916666360</a></span>
                         </div>
-                        <!-- whatsapp (same number) -->
+                        <!-- Whatsapp link -->
                         <div class="contact-item whatsapp-highlight">
-                            <i class="fab fa-whatsapp"></i>
-                            <span><strong>WhatsApp:</strong> <a href="https://wa.me/919916666360">9916666360</a></span>
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                            <span><strong>WhatsApp:</strong> <a href="https://wa.me/919916666360" target="_blank" rel="noopener" aria-label="Chat with admissions on WhatsApp at 9916666360">9916666360</a></span>
                         </div>
-                        <!-- email -->
+                        <!-- Email link -->
                         <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span><strong>Email:</strong> <a
-                                    href="mailto:vishwachethana2010@gmail.com">vishwachethana2010@gmail.com</a></span>
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <span><strong>Email:</strong> <a href="mailto:vishwachethana2010@gmail.com" aria-label="Email admissions at vishwachethana2010@gmail.com">vishwachethana2010@gmail.com</a></span>
                         </div>
                     </div>
 
-                    <!-- Location / Google maps link (exact URL) -->
+                    <!-- Google Maps Directions Link -->
                     <div class="map-link">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <span>📍 <a
-                                href="https://www.google.com/maps/dir/12.7569321,77.7556715/Vishwa+chethana+PU+and+Degree+college+for+Women,+52%2F1+Kurubarahatti,+Road,+Muthagatti,+Anekal,+Karnataka+562106/@12.6932061,77.6856595,11z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae6f00482339a9:0xc5775401ee013ba!2m2!1d77.7151616!2d12.7061648?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D"
-                                target="_blank" rel="noopener">Open college location (Google Maps)</a></span>
+                        <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
+                        <a href="https://www.google.com/maps/dir/12.7569321,77.7556715/Vishwa+chethana+PU+and+Degree+college+for+Women,+52%2F1+Kurubarahatti,+Road,+Muthagatti,+Anekal,+Karnataka+562106/@12.6932061,77.6856595,11z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae6f00482339a9:0xc5775401ee013ba!2m2!1d77.7151616!2d12.7061648?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank" rel="noopener" aria-label="Open college location on Google Maps">📍 Open College Location (Google Maps)</a>
                     </div>
-                    <!-- subtle extra info -->
-                    <div style="margin-top: 12px; font-size:0.85rem; color:#1f4980;"><i class="fas fa-clock"></i> Office
-                        hours: 9 AM – 5 PM (Mon–Sat)</div>
-                </div>
+                    <!-- Timing details -->
+                    <div class="office-hours">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                        <span>Office hours: 9 AM – 5 PM (Mon–Sat)</span>
+                    </div>
+                </section>
 
-                <!-- action buttons -->
-                <div class="actions">
-                    <button type="submit" class="btn-submit" id="submitBtn"><i class="fas fa-check-circle"></i>
-                        Submit</button>
-                    <button type="reset" class="btn-reset" id="resetBtn"><i class="fas fa-sync-alt"></i> Reset</button>
+                <!-- Action buttons -->
+                <div class="actions full-width">
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <i class="fas fa-check-circle" aria-hidden="true"></i> Submit Application
+                    </button>
+                    <button type="reset" class="btn-reset" id="resetBtn">
+                        <i class="fas fa-sync-alt" aria-hidden="true"></i> Reset Form
+                    </button>
                 </div>
             </div>
         </form>
 
-        <div class="footer-note">
-            <i class="fas fa-shield-alt"></i> official portal · Vishwa Chethana PG College · Anekal
-        </div>
-    </div>
+        <!-- Footer -->
+        <footer class="footer-note">
+            <i class="fas fa-shield-alt" aria-hidden="true"></i> Official Admission Portal · Vishwa Chethana PG College · Anekal
+        </footer>
+    </main>
 
-    <!-- success popup (hidden initially) -->
-    <div class="popup-overlay" id="successPopup">
+    <!-- Success Popup Modal -->
+    <div class="popup-overlay" id="successPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" aria-describedby="popupDesc">
         <div class="popup-card">
-            <i class="fas fa-circle-check"></i>
-            <h2>Application Submitted</h2>
-            <p>Successfully!<br>We will contact you soon.</p>
-            <button class="popup-close" id="closePopup"><i class="fas fa-thumbs-up"></i> OK</button>
+            <i class="fas fa-circle-check" aria-hidden="true"></i>
+            <h2 id="popupTitle">Application Submitted</h2>
+            <p id="popupDesc">Successfully!<br>We will contact you soon regarding your admission.</p>
+            <button type="button" class="popup-close" id="closePopup">
+                <i class="fas fa-thumbs-up" aria-hidden="true"></i> OK
+            </button>
         </div>
     </div>
 
-    <!-- ========== EXACT SCRIPT (UNCHANGED) ========== -->
+    <!-- Script Block - Exact Google sheets submission functionality maintained -->
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbz6qTvu8aYV2teLSAcMDeWxn7RdvE6Io3FVROj8WHBQOyxY4pUNlYnslU2aCE3jfyGm/exec';
         const form = document.forms['formName'];      // DO NOT CHANGE
 
         (function () {
+            const nameInput = document.getElementById('nameInput');
+            const genderSelect = document.getElementById('genderSelect');
+            const courseSelect = document.getElementById('course');
             const phoneInput = document.getElementById('phone');
             const phoneError = document.getElementById('phoneError');
             const emailInput = document.getElementById('email');
@@ -871,13 +1033,33 @@
             const dobHidden = document.getElementById('dob_hidden');
             const dobError = document.getElementById('dobError');
 
-            // Populate Years (2000 to 2028)
+            const degreeSelect = document.getElementById('degreeSelect');
+            const othersContainer = document.getElementById('othersContainer');
+            const otherDegreeInput = document.getElementById('otherDegreeInput');
+            const gradYearSelect = document.getElementById('gradYearSelect');
+
+            const submitBtn = document.getElementById('submitBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const popup = document.getElementById('successPopup');
+            const closePopup = document.getElementById('closePopup');
+
+            // Populate DOB Years (2000 to 2028)
             if (dobYyyy) {
                 for (let y = 2028; y >= 2000; y--) {
                     const opt = document.createElement('option');
                     opt.value = y;
                     opt.textContent = y;
                     dobYyyy.appendChild(opt);
+                }
+            }
+
+            // Populate Graduation Years (2010 to 2030)
+            if (gradYearSelect) {
+                for (let y = 2030; y >= 2010; y--) {
+                    const opt = document.createElement('option');
+                    opt.value = y;
+                    opt.textContent = y;
+                    gradYearSelect.appendChild(opt);
                 }
             }
 
@@ -891,10 +1073,8 @@
                 let daysInMonth = 31; // default max
 
                 if (!isNaN(m)) {
-                    // Check generic month lengths
                     if ([4, 6, 9, 11].includes(m)) daysInMonth = 30;
                     if (m === 2) {
-                        // Leap year calculation
                         const isLeap = (!isNaN(y) && (y % 4 === 0 && (y % 100 !== 0 || y % 400 === 0)));
                         daysInMonth = isLeap ? 29 : 28;
                     }
@@ -902,7 +1082,7 @@
 
                 const currentDay = parseInt(dobDd.value, 10);
 
-                // Clear existing (except placeholder)
+                // Clear existing options except placeholder
                 dobDd.innerHTML = '<option value="" disabled selected>DD</option>';
 
                 for (let d = 1; d <= daysInMonth; d++) {
@@ -921,9 +1101,10 @@
             if (dobMm) dobMm.addEventListener('change', updateDays);
             if (dobYyyy) dobYyyy.addEventListener('change', updateDays);
 
-            // Initial call
+            // Initial days population
             updateDays();
 
+            // DOB Verification and formatting
             function validateDobField() {
                 if (!dobDd || !dobMm || !dobYyyy || !dobError) return true;
 
@@ -933,18 +1114,25 @@
 
                 if (!dText || !mText || !yText) {
                     dobError.classList.remove('error-hidden');
-                    dobError.innerHTML = '<i class="fas fa-circle-exclamation"></i> Date of birth is required';
+                    dobError.innerHTML = '<i class="fas fa-circle-exclamation" aria-hidden="true"></i> Date of birth is required';
+                    dobDd.classList.add('invalid');
+                    dobMm.classList.add('invalid');
+                    dobYyyy.classList.add('invalid');
+                    dobDd.classList.remove('valid');
+                    dobMm.classList.remove('valid');
+                    dobYyyy.classList.remove('valid');
                     return false;
                 }
 
-                // Dropdowns guarantee these are safe numbers based on population logic, but verifying again
-                const d = parseInt(dText, 10);
-                const m = parseInt(mText, 10);
-                const y = parseInt(yText, 10);
-
                 dobError.classList.add('error-hidden');
+                dobDd.classList.remove('invalid');
+                dobMm.classList.remove('invalid');
+                dobYyyy.classList.remove('invalid');
+                dobDd.classList.add('valid');
+                dobMm.classList.add('valid');
+                dobYyyy.classList.add('valid');
 
-                // Format for Google Sheets (YYYY-MM-DD or DD/MM/YYYY)
+                // Format for Google Sheets (YYYY-MM-DD)
                 const dd = dText.padStart(2, '0');
                 const mm = mText.padStart(2, '0');
                 if (dobHidden) dobHidden.value = `${yText}-${mm}-${dd}`;
@@ -959,26 +1147,21 @@
             if (dobMm) dobMm.addEventListener('change', validateDobField);
             if (dobYyyy) dobYyyy.addEventListener('change', validateDobField);
 
-            const degreeSelect = document.getElementById('degreeSelect');
-            const othersContainer = document.getElementById('othersContainer');
-            const otherDegreeInput = document.getElementById('otherDegreeInput');
-            const gradYearSelect = document.getElementById('gradYearSelect');
-
-            // Populate Graduation Years (2010 to 2030)
-            if (gradYearSelect) {
-                for (let y = 2030; y >= 2010; y--) {
-                    const opt = document.createElement('option');
-                    opt.value = y;
-                    opt.textContent = y;
-                    gradYearSelect.appendChild(opt);
+            // Dynamic "Others" input toggler
+            function toggleOthers() {
+                if (degreeSelect.value === 'Others') {
+                    othersContainer.classList.remove('hidden');
+                    otherDegreeInput.setAttribute('required', 'required');
+                } else {
+                    othersContainer.classList.add('hidden');
+                    otherDegreeInput.removeAttribute('required');
+                    otherDegreeInput.classList.remove('invalid', 'valid');
                 }
             }
+            degreeSelect.addEventListener('change', toggleOthers);
+            toggleOthers();
 
-            const submitBtn = document.getElementById('submitBtn');
-            const resetBtn = document.getElementById('resetBtn');
-            const popup = document.getElementById('successPopup');
-            const closePopup = document.getElementById('closePopup');
-
+            // Email and phone regex validators
             function isValidPhone(phone) {
                 const cleaned = phone.replace(/\D/g, '');
                 return /^[6-9][0-9]{9}$/.test(cleaned);
@@ -993,24 +1176,34 @@
                 return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
             }
 
+            // Numeric input enforcement on Phone field
             phoneInput.addEventListener('input', function (e) {
                 let raw = this.value.replace(/\D/g, '');
                 if (raw.length > 10) raw = raw.slice(0, 10);
                 this.value = raw;
+                if (raw.length === 10) {
+                    validatePhoneField();
+                }
             });
 
             function validatePhoneField() {
                 const phone = phoneInput.value.trim();
                 if (phone === '') {
                     phoneError.classList.remove('error-hidden');
-                    phoneError.innerHTML = '<i class="fas fa-circle-exclamation"></i> Phone is required';
+                    phoneError.innerHTML = '<i class="fas fa-circle-exclamation" aria-hidden="true"></i> Phone is required';
+                    phoneInput.classList.add('invalid');
+                    phoneInput.classList.remove('valid');
                     return false;
                 } else if (!isValidPhone(phone)) {
                     phoneError.classList.remove('error-hidden');
-                    phoneError.innerHTML = '<i class="fas fa-circle-exclamation"></i> Enter valid 10-digit mobile number';
+                    phoneError.innerHTML = '<i class="fas fa-circle-exclamation" aria-hidden="true"></i> Enter valid 10-digit mobile number';
+                    phoneInput.classList.add('invalid');
+                    phoneInput.classList.remove('valid');
                     return false;
                 } else {
                     phoneError.classList.add('error-hidden');
+                    phoneInput.classList.remove('invalid');
+                    phoneInput.classList.add('valid');
                     return true;
                 }
             }
@@ -1019,33 +1212,65 @@
                 const email = emailInput.value.trim();
                 if (email === '') {
                     emailError.classList.remove('error-hidden');
-                    emailError.innerHTML = '<i class="fas fa-circle-exclamation"></i> Email is required';
+                    emailError.innerHTML = '<i class="fas fa-circle-exclamation" aria-hidden="true"></i> Email is required';
+                    emailInput.classList.add('invalid');
+                    emailInput.classList.remove('valid');
                     return false;
                 } else if (!isValidEmail(email)) {
                     emailError.classList.remove('error-hidden');
-                    emailError.innerHTML = '<i class="fas fa-circle-exclamation"></i> Enter valid email address';
+                    emailError.innerHTML = '<i class="fas fa-circle-exclamation" aria-hidden="true"></i> Enter valid email address';
+                    emailInput.classList.add('invalid');
+                    emailInput.classList.remove('valid');
                     return false;
                 } else {
                     emailError.classList.add('error-hidden');
+                    emailInput.classList.remove('invalid');
+                    emailInput.classList.add('valid');
                     return true;
                 }
             }
 
             phoneInput.addEventListener('blur', validatePhoneField);
             emailInput.addEventListener('blur', validateEmailField);
-
-            function toggleOthers() {
-                if (degreeSelect.value === 'Others') {
-                    othersContainer.classList.remove('hidden');
-                    otherDegreeInput.setAttribute('required', 'required');
-                } else {
-                    othersContainer.classList.add('hidden');
-                    otherDegreeInput.removeAttribute('required');
-                }
+            
+            // Standard validation highlights for core inputs
+            function setupInputValidation(inputEl, validateFn) {
+                if (!inputEl) return;
+                ['blur', 'change', 'input'].forEach(evt => {
+                    inputEl.addEventListener(evt, function() {
+                        if (validateFn) {
+                            validateFn();
+                        } else {
+                            if (inputEl.value.trim() !== '') {
+                                inputEl.classList.remove('invalid');
+                                inputEl.classList.add('valid');
+                            } else if (inputEl.hasAttribute('required')) {
+                                inputEl.classList.add('invalid');
+                                inputEl.classList.remove('valid');
+                            }
+                        }
+                    });
+                });
             }
-            degreeSelect.addEventListener('change', toggleOthers);
-            toggleOthers();
 
+            setupInputValidation(nameInput);
+            setupInputValidation(genderSelect);
+            setupInputValidation(courseSelect);
+            setupInputValidation(degreeSelect);
+            setupInputValidation(gradYearSelect);
+            setupInputValidation(otherDegreeInput, function() {
+                if (degreeSelect.value === 'Others') {
+                    if (otherDegreeInput.value.trim() !== '') {
+                        otherDegreeInput.classList.add('valid');
+                        otherDegreeInput.classList.remove('invalid');
+                    } else {
+                        otherDegreeInput.classList.add('invalid');
+                        otherDegreeInput.classList.remove('valid');
+                    }
+                }
+            });
+
+            // Form Reset handler
             resetBtn.addEventListener('click', function () {
                 setTimeout(() => {
                     phoneError.classList.add('error-hidden');
@@ -1053,10 +1278,17 @@
                     if (dobError) dobError.classList.add('error-hidden');
                     toggleOthers();
                     submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Submit';
+                    submitBtn.innerHTML = '<i class="fas fa-check-circle" aria-hidden="true"></i> Submit Application';
+                    
+                    // Reset CSS highlights
+                    const formElements = form.querySelectorAll('input, select, textarea');
+                    formElements.forEach(el => {
+                        el.classList.remove('valid', 'invalid');
+                    });
                 }, 10);
             });
 
+            // Form Submit handler
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
 
@@ -1064,16 +1296,34 @@
                 const emailOk = validateEmailField();
                 const dobOk = validateDobField();
 
-                const name = form.name.value.trim();
-                const gender = form.gender.value;
-                const course = document.getElementById('course').value;
+                const name = nameInput.value.trim();
+                const gender = genderSelect.value;
+                const course = courseSelect.value;
                 const gradYear = gradYearSelect ? gradYearSelect.value : '';
+
+                // Explicit validation styling triggers
+                if (!name) nameInput.classList.add('invalid');
+                if (!gender) genderSelect.classList.add('invalid');
+                if (!course) courseSelect.classList.add('invalid');
+                if (!gradYear) gradYearSelect.classList.add('invalid');
 
                 let degreeValid = false;
                 if (degreeSelect.value === 'Others') {
-                    if (otherDegreeInput.value.trim() !== '') degreeValid = true;
+                    if (otherDegreeInput.value.trim() !== '') {
+                        degreeValid = true;
+                        otherDegreeInput.classList.remove('invalid');
+                        otherDegreeInput.classList.add('valid');
+                    } else {
+                        otherDegreeInput.classList.add('invalid');
+                    }
                 } else {
-                    if (degreeSelect.value) degreeValid = true;
+                    if (degreeSelect.value) {
+                        degreeValid = true;
+                        degreeSelect.classList.remove('invalid');
+                        degreeSelect.classList.add('valid');
+                    } else {
+                        degreeSelect.classList.add('invalid');
+                    }
                 }
 
                 if (!name || (!dobDd.value || !dobMm.value || !dobYyyy.value) || !gender || !course || !degreeValid || !gradYear) {
@@ -1083,8 +1333,9 @@
 
                 if (!phoneOk || !emailOk || !dobOk) return;
 
+                // Set loading status
                 submitBtn.disabled = true;
-                submitBtn.innerHTML = '<span class="spinner"></span> Submitting';
+                submitBtn.innerHTML = '<span class="spinner" aria-hidden="true"></span> Submitting Application...';
 
                 const formData = new FormData(form);
                 formData.set('grad_year', gradYear);
@@ -1092,20 +1343,23 @@
                 fetch(scriptURL, { method: 'POST', body: formData })
                     .then(response => {
                         popup.style.display = 'flex';
+                        popup.focus();
                     })
                     .catch(error => {
-                        console.error('Error!', error.message);
-                        alert('Submission error, please try again.');
+                        console.error('Submission Error:', error.message);
+                        alert('Submission error, please check your connection and try again.');
                         submitBtn.disabled = false;
-                        submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Submit';
+                        submitBtn.innerHTML = '<i class="fas fa-check-circle" aria-hidden="true"></i> Submit Application';
                     });
             });
 
+            // Close Popup Modal
             closePopup.addEventListener('click', function () {
                 popup.style.display = 'none';
                 window.location.reload();
             });
 
+            // Close popup on backdrop click
             window.addEventListener('click', (e) => {
                 if (e.target === popup) {
                     popup.style.display = 'none';
@@ -1114,7 +1368,6 @@
             });
         })();
     </script>
-    <!-- ========== END EXACT SCRIPT ========== -->
 </body>
 
 </html>
