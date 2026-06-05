@@ -25,6 +25,7 @@
             --primary-color: hsl(215, 78%, 15%);
             --primary-light: hsl(215, 70%, 25%);
             --primary-ultra-light: hsl(212, 100%, 96%);
+            --primary-dark: hsl(215, 90%, 10%);
             --accent-color: hsl(40, 100%, 60%);
             --accent-hover: hsl(40, 100%, 50%);
             --accent-glow: hsla(40, 100%, 60%, 0.3);
@@ -629,12 +630,24 @@
             background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
             color: var(--text-light);
             box-shadow: 0 10px 25px -10px var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit i {
+            transition: transform var(--transition-smooth), color var(--transition-smooth);
         }
 
         .btn-submit:hover:not(:disabled) {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px -8px var(--primary-color);
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+            color: var(--primary-dark);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px -5px var(--accent-glow), 0 5px 15px -3px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-submit:hover:not(:disabled) i {
+            transform: scale(1.15) rotate(10deg);
+            color: var(--primary-dark);
         }
 
         .btn-submit:focus-visible {
@@ -654,10 +667,18 @@
             border: 2px solid var(--border-color);
         }
 
+        .btn-reset i {
+            transition: transform var(--transition-smooth);
+        }
+
         .btn-reset:hover {
             background: var(--primary-ultra-light);
             border-color: var(--primary-light);
             transform: translateY(-2px);
+        }
+
+        .btn-reset:hover i {
+            transform: rotate(-180deg);
         }
 
         .btn-reset:focus-visible {
